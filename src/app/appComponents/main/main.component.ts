@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { ContentfulService } from 'src/app/services/contentful.service';
+
+import {faSearchPlus} from '@fortawesome/free-solid-svg-icons';
+import {faPuzzlePiece} from '@fortawesome/free-solid-svg-icons';
+
 
 @Component({
   selector: 'app-main',
@@ -7,9 +12,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MainComponent implements OnInit {
 
-  constructor() { }
+  header$;
+
+  faSearch = faSearchPlus;
+  faVrCardboard = faPuzzlePiece;
+
+  constructor(private cs: ContentfulService) { }
 
   ngOnInit() {
+    this.header$ = this.cs.getHeader();
+
+    this.cs.getHeader().subscribe(val => {
+      console.log(val.headerImage.fields.file.url);
+    })
   }
 
 }

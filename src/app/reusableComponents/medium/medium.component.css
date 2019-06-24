@@ -1,0 +1,29 @@
+
+a {
+    display: inline-block;
+    font-size: 16px;
+    background: #029E74;
+    height: 26px;
+    border-radius: 4px;
+    padding: 1px 10px 1px 9px;
+    
+    cursor: pointer;
+    width: 146px;
+    text-align: center;
+    line-height: 26px;
+
+    color: #FFFFFF;
+    text-decoration-line: none;
+    font-weight: 500;
+    border-top: 1px solid rgba(255,255,255,0.04);
+    margin-top: 10px;
+}
+
+a:hover {
+    background: rgb(1, 97, 71);
+}
+
+
+fa-icon {
+    color: #FFFFFF;
+}

@@ -1,0 +1,18 @@
+.article {
+    width: 439px;
+    height: 400px;
+    margin: 10px;
+    background: #FFFFFF;
+    border-radius: 4px;
+    box-shadow: 0 0 5px rgba(0,0,0,0.1);
+    display: inline-block;
+}
+
+.inner-article {
+    padding: 15px;
+}
+
+.text-link {
+    text-decoration-line: none;
+    color: black;
+}

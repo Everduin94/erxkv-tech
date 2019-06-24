@@ -1,0 +1,16 @@
+<ng-container *ngIf="articles$ | async as articles">
+  <a class="text-link" target="_blank" rel="noopener noreferrer" [href]="article.fields.linkUrl" *ngFor="let article of articles">
+    <div class="article">
+      <img [src]="article.fields.image | imageToUrl" />
+      <div class="inner-article">
+        <h4>
+          {{article.fields.title}}
+        </h4>
+        <hr>
+        <p>
+          {{article.fields.description}}
+        </p>
+      </div>
+    </div>
+  </a>
+</ng-container>

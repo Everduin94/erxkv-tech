@@ -2,15 +2,16 @@ import { Injectable } from '@angular/core';
 
 import { createClient, Entry } from 'contentful';
 import { from, Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { map, tap } from 'rxjs/operators';
 
 // https://www.contentful.com/developers/docs/references/authentication/
 const CONFIG = {
-  space: 'SPACE_ID',
-  accessToken: 'READ_ACCESS_TOKEN',
+  space: 'cxts8zfs2vii',
+  accessToken: 'wsUNnQ2gUg95AyrUr1AGyhu00kDo4bgQd23_ihXZTAQ',
 
   contentTypeIds: {
-    product: '2PqfXUJwE8qSYKuM0U6w8M' // EXAMPLE
+    header: '2IzEzGtCzwgE33zOwSCpeB',
+    articles: 'article',
   }
 }
 
@@ -26,14 +27,26 @@ export class ContentfulService {
 
   constructor() { }
 
+  getHeader() {
+    return this.getEntry(CONFIG.contentTypeIds.header);
+  }
+
+  getArticles() {
+    const promise = this.cdaClient.getEntries({content_type: CONFIG.contentTypeIds.articles})
+    return from(promise).pipe(map(entries => entries.items), tap(console.log))
+  }
+
   // ud = CONFIG.contentTypeIds.product
-  getEntries( id, query?: object): Observable<Entry<any>[]> {
+  getEntries(id, query?: object): Observable<Entry<any>[]> {
     // TODO: Double check this, because I updated to ES6 Spread
-    return from(this.cdaClient.getEntries({...query, content_type: id})).pipe(map(entries => entries.items));
+    this.cdaClient.getEntries().then(val => {
+      console.log(val);
+    })
+    return from(this.cdaClient.getEntries()).pipe(map(entries => entries.items));
   }
 
   getEntry(id): Observable<any> {
       const promise = this.cdaClient.getEntry(id);
-      return from(promise).pipe(map(entry => entry.fields));
+      return from(promise).pipe(map(entry => entry.fields), tap(console.log));
   }
 }
