@@ -1,31 +1,21 @@
 <div class="image-container" *ngIf="header$ | async as headerInfo">
-  <h1 class="header">
-    <span>{{headerInfo.header}}</span>
-  </h1>
-  <h3 class="bio">
-    {{headerInfo.bio}}
-  </h3>
-  <img class="images"[src] ="headerInfo.headerImage | imageToUrl"/>
+  <div>
+      <div class="video-container">
+        <video autoplay muted loop>
+          <source [src]="headerInfo.headerImage | imageToUrl" type="video/mp4">
+          My video is broken. Oh no. :(
+        </video>
+        <div class="after">
+          <div class="top">Erxk Verduin</div>
+          <div class="middle">{{headerInfo.bio}}</div>
+          <div class="bottom">{{headerInfo.header}}</div>
+        </div>
+      </div>
+  </div>
 </div>
-
+<div class="title-container">
+  <h1 class="header">Articles</h1>
+</div>
+<a name="articles">
 <app-articles></app-articles>
-
-
-<!-- <div class="feature-image">
-    Detect <fa-icon [icon]="faSearch"></fa-icon> Memory Leaks
-</div> -->
-
-<!-- <div class="feature-image">
-    Async Pipe Deep Dive <fa-icon [icon]="faVrCardboard"></fa-icon>
-</div> -->
-
-<!-- <div class="feature-image">
-    Component  &nbsp;&nbsp;&nbsp;<fa-icon [icon]="faVrCardboard"></fa-icon> Patterns 
-</div> -->
-<!-- 
-<div class="feature-image">
-    Web <fa-icon [icon]="faVrCardboard"></fa-icon> Workers
-</div> -->
-
-
 <router-outlet></router-outlet>

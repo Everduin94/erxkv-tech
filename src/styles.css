@@ -2,4 +2,7 @@
 body {
     background: #F5F6F7;
     font-family: 'Ubuntu', sans-serif;
+    overflow:hidden;
+    overflow-x:hidden;
+    margin: 0;
 }

@@ -15,4 +15,20 @@ a {
     border-top: 1px solid rgba(255,255,255,0.04);
     border-bottom: 1px solid rgba(0,0,0,0.3);
     margin-top: 10px;
+    display: block;
+    padding: 5px 0px 5px 0px;
+}
+
+.content {
+    overflow-y: auto;
+}
+
+
+.my-links {
+    margin-bottom: 10px;  color: white;  font-size: 1.5rem
+}
+
+.my-links:hover {
+    cursor: pointer;
+    background: linear-gradient(to right,#00f260, rgb(5, 117, 230, 1), rgb(245, 246, 247, 1));
 }
